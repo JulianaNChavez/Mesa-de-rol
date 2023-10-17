@@ -11,4 +11,9 @@ class ControladorJuegos
         $this->id_usuario = $id_usuario;
         $this->rj = new RepositorioJuegos();
     }
+
+    public function listar()
+    {
+        return $this->rj->get_all();
+    }
 }
