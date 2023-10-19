@@ -4,7 +4,7 @@ require_once 'clases/Usuario.php';
 require_once 'clases/ControladorJuegos.php';
 
 
-$cv = new ControladorJuegos
+$cv = new ControladorJuegos($usuario->getId());
 
 $titulo = "Todos los juegos";
 
