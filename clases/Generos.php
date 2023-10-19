@@ -10,4 +10,9 @@ class Generos
         $this->id = $id;
         $this->nombre = $nombre;
     }
+
+    public function __toString()
+    {
+        return $this->nombre;
+    }
 }
