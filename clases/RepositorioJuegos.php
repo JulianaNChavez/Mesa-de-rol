@@ -49,7 +49,9 @@ class RepositorioJuegos
         };
         $juegos = [];
         while ($query->fetch()) {
-            
+            $g = new Generos($cod_g, $genero);
+            $a = new Ambientaciones($cod_a, $ambientacion);
+            $j = new Juegos($)
         }
     }
 }
