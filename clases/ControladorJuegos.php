@@ -12,8 +12,8 @@ class ControladorJuegos
         $this->rj = new RepositorioJuegos();
     }
 
-    public function listar()
+    public function listar($filtro = null)
     {
-        return $this->rj->get_all();
+        return $this->rj->get_all($filtro);
     }
 }

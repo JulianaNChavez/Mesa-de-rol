@@ -13,9 +13,15 @@ if (isset($_SESSION['usuario'])) {
 
 $cv = new ControladorJuegos($usuario->getId());
 
+$filtro = null;
 $titulo = "Todos los juegos";
 
-$juegos = $cv->listar();
+if(!empty($_POST['filtro'])) {
+    $filtro = $_POST['filtro'];
+    $titulo = "Juegos del genero $filtro";
+}
+
+$juegos = $cv->listar($filtro);
 
 ?><!DOCTYPE html>
 <html>
@@ -25,6 +31,10 @@ $juegos = $cv->listar();
     </head>
     <body>
         <h1><?php echo $titulo; ?></h1>
+        <form action="lista_juegos.php" method="post">
+            <label for="filtro">Filtrar por genero:</label>
+            <input name="filtro">
+            <input type="submit" value="filtrar">
         
         <ul>
             <?php

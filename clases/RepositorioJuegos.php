@@ -28,7 +28,7 @@ class RepositorioJuegos
         self::$conexion->set_charset('utf8mb4');
     }
 
-    public function get_all()
+    public function get_all($filtro = null)
     {
         $sql =  "SELECT ";
 	    $sql.=  "    j.id, j.nombre, j.descripcion, j.id_usuario, ";
@@ -37,9 +37,17 @@ class RepositorioJuegos
         $sql.=  "FROM juegos j ";
         $sql.=  "INNER JOIN generos g ON j.id_genero = g.id ";
         $sql.=  "INNER JOIN ambientaciones a ON j.id_ambientacion = a.ID ";
+        
+        if ($filtro) {
+            $sql .= "WHERE g.nombre = ? ";
+        }
         $sql.=  "ORDER BY j.id;";
 
         $query = self::$conexion->prepare($sql);
+
+        if ($filtro) {
+            $query->bind_param("s", $filtro);
+        }
 
         if ($query->execute())
         {
