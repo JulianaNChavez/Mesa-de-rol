@@ -56,8 +56,6 @@ CREATE TABLE IF NOT EXISTS juegos (
 id INT(10) unsigned NOT NULL AUTO_INCREMENT,
 nombre varchar(45) NOT NULL,
 descripcion varchar(255) NOT NULL,
-portada varchar(200) DEFAULT NULL,
-ficha varchar(200) DEFAULT NULL,
 id_genero INT(10) unsigned NOT NULL,
 id_ambientacion INT(10) unsigned NOT NULL,
 id_usuario INT(10) unsigned NOT NULL,
