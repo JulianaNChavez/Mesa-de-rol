@@ -21,10 +21,16 @@ class ControladorJuegos
     {
         if ($juegos->es_propio($this->id_usuario)) {
             $modificar = "<a href='modificar_juego.php?id=$juegos->id'>Modificar datos</a>";
-            $eliminar = "<a href='eliminar_juego.php?id=$juegos->id'>Eliminar juego</a>";
+            $eliminar = "<a href='confirmar_borrado_de_juego.php?id=$juegos->id'>Eliminar juego</a>";
             return "$modificar - $eliminar";
         } else {
             return '';
         }
+    }
+
+    public function eliminar($juego)
+    {
+        $repo = new RepositorioJuegos();
+        return $repo->eliminar($juego);
     }
 }

@@ -46,4 +46,16 @@ class RepositorioJuegos extends repositorio
         return $juegos;
 
     }
+
+    public function eliminar($juego)
+    {
+        $q = "DELETE FROM juegos WHERE nombre = ?";
+        $query = self::$conexion->prepare($q);
+
+        $nombre = $juego;
+
+        $query->bind_param("s", $nombre);
+
+        return $query->execute();
+    }
 }

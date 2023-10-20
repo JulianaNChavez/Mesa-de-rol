@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['usuario'])) {
     $usuario = unserialize($_SESSION['usuario']);
 } else {
-    header('Location: index.php');
+    header('Location: lista_juegos.php');
 }
 
 ?><!DOCTYPE html>
@@ -20,14 +20,14 @@ if (isset($_SESSION['usuario'])) {
       </div>
       <div class="text-center">
             <div id="mensaje" class="alert alert-danger text-center">
-                    <p>Advertencia. Ud va a <strong>eliminar</strong> su usuario.
+                    <p>Advertencia. Ud va a <strong>eliminar</strong> este juego.
                         Esta acción no se puede deshacer.</p>
             </div>
 
-            <form action="delete.php" method="post">
-            <label for="usuario">Escriba su nombre de usuario para <strong>eliminar</strong> su cuenta: </label><br>
-            <input name="usuario" class="form-control form-control-lg" placeholder="Usuario"><br>
-            <input type="submit" value="Eliminar usuario" class="btn btn-primary">
+            <form action="eliminar_juego.php" method="post">
+            <label for="juego">Por favor, escriba el nombre del juego que va a <strong>eliminar</strong>: </label><br>
+            <input name="juego" class="form-control form-control-lg" placeholder="Juego"><br>
+            <input type="submit" value="Eliminar juego" class="btn btn-primary">
             </form>
       </div>
     </body>
