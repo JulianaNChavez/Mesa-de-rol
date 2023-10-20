@@ -16,4 +16,15 @@ class ControladorJuegos
     {
         return $this->rj->get_all($filtro);
     }
+
+    public function mostrar_enlaces(Juegos $juegos)
+    {
+        if ($juegos->es_propio($this->id_usuario)) {
+            $modificar = "<a href='modificar_juego.php?id=$juegos->id'>Modificar datos</a>";
+            $eliminar = "<a href='eliminar_juego.php?id=$juegos->id'>Eliminar juego</a>";
+            return "$modificar - $eliminar";
+        } else {
+            return '';
+        }
+    }
 }
