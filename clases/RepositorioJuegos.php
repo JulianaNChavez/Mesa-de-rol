@@ -47,6 +47,26 @@ class RepositorioJuegos extends repositorio
 
     }
 
+    public function get_secundarios($tipo)
+    {
+        $q="SELECT id, nombre FROM $tipo";
+
+        $query = self::$conexion->prepare($q);
+
+        if ($query->execute())
+        {
+            $query->bind_result($id, $nombre);
+        };
+        $secundarios = [];
+        while ($query->fetch()) {
+            $s = new Generos($id, $nombre);
+        
+            $secundarios[] = $s;
+        }
+
+        return $secundarios;
+    }
+
     public function eliminar($juego)
     {
         $q = "DELETE FROM juegos WHERE nombre = ?";
@@ -56,6 +76,19 @@ class RepositorioJuegos extends repositorio
 
         $query->bind_param("s", $nombre);
 
+        return $query->execute();
+    }
+
+    public function actualizar(string $nombre, string $descripcion, $genero, $ambientacion, $juego)
+    {
+        $q = "UPDATE juegos SET nombre = ?, descripcion = ?, genero = ?, ambientacion = ? WHERE nombre = ?";
+
+        $query = self::$conexion->prepare($q);
+
+        $id = $usuario->getId();
+
+        $query->bind_param("ssss", $nombre_usuario, $nombre, $apellido, $id);
+        
         return $query->execute();
     }
 }
