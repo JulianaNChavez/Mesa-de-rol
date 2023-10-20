@@ -39,7 +39,7 @@ $juegos = $cv->listar($filtro);
         <ul>
             <?php
                 foreach ($juegos as $j) {
-                    echo "<li>" . $j . ' - ' . $cv->mostrar_enlaces($j)"</li>";
+                    echo "<li>" . $j . ' - ' . $cv->mostrar_enlaces($j) . "</li>";
                 }
             ?>
             
