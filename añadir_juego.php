@@ -1,16 +1,15 @@
 <?php
 
-require_once 'clases/Usuario.php';
 require_once 'clases/Juegos.php';
+require_once 'clases/Usuario.php';
 require_once 'clases/ControladorJuegos.php';
 
-// Validamos que el usuario tenga sesión iniciada:
 session_start();
-if (isset($_SESSION['usuario'])) {
-    // Si es así, recuperamos la variable de sesión
+
+if(isset($_SESSION['usuario']))
+{
     $usuario = unserialize($_SESSION['usuario']);
-} else {
-    // Si no, redirigimos al login
+}   else {
     header('Location: index.php');
 }
 
@@ -21,8 +20,8 @@ $generos = $cv->lista_secundarios("generos");
 $ambientacion = $cv->lista_secundarios("ambientaciones");
 
 $i = 0
-
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,11 +35,9 @@ $i = 0
       <h1>Mesa de Rol</h1>
       </div>
       <div class="text-center">
-        <h3>Modificar datos del juego</h3>
-        <form action="modificar_juego.php" method="post">
-            <label for="nombre_original">Nombre actual del juego</label>
-            <input name="nombre_original" class="form-control form-control-lg"><br>
-            <label for="nombre_juego">Nuevo nombre del juego</label>
+        <h3>Crear un juego</h3>
+        <form action="crear_juego.php" method="post">
+            <label for="nombre_juego">Nombre del juego</label>
             <input name="nombre_juego" class="form-control form-control-lg"><br>
             <label for="descripcion">Descripcion</label>
             <input name="descripcion" class="form-control form-control-lg"><br>
@@ -61,7 +58,7 @@ $i = 0
             }
             ?>
                 <br>
-            <input type="submit" value="Modificar datos" class="btn btn-primary">
+            <input type="submit" value="Crear juego" class="btn btn-primary">
         </form>
       </div>
     </body>

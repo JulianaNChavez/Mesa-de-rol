@@ -31,6 +31,7 @@ $juegos = $cv->listar($filtro);
     </head>
     <body>
         <h1><?php echo $titulo; ?></h1>
+            <a href="añadir_juego.php">¿Quieres añadir un juego? haz click aqui</a><br>
         <form action="lista_juegos.php" method="post">
             <label for="filtro">Filtrar por genero:</label>
             <input name="filtro">

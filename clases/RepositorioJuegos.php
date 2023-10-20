@@ -73,6 +73,25 @@ class RepositorioJuegos extends repositorio
         return $secundarios;
     }
 
+    public function crear(Juegos $juego)
+    {
+        $q = "INSERT INTO usuarios (nombre, descripcion, id_genero, id_ambientacion) VALUES (?, ?, ?, ?)";
+        $query = self::$conexion->prepare($q);
+
+        $nombre = $juego->nombre;
+        $descripcion = $juego->descripcion;
+        $genero = $juego->genero;
+        $ambientacion = $juego->ambientacion;
+
+        $query->bind_param("ssdd", $nombre, $descripcion, $genero, $ambientacion);
+
+        if ($query->execute()) {
+            return self::$conexion->insert_id;
+        } else {
+            return false;
+        }
+    }
+
     public function eliminar($juego)
     {
         $q = "DELETE FROM juegos WHERE nombre = ?";

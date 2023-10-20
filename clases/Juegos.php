@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Usuario.php';
 require_once 'Generos.php';
 require_once 'Ambientaciones.php';
 
@@ -12,7 +13,7 @@ class Juegos
     public $genero;
     public $ambientacion;
 
-    public function __construct($id, $nombre, $descripcion, $id_usuario, Generos $genero, Ambientaciones $ambientacion)
+    public function __construct($id = null, $nombre, $descripcion, $id_usuario = null, Generos $genero, Ambientaciones $ambientacion)
     {
         $this->id = $id;
         $this->nombre = $nombre;
