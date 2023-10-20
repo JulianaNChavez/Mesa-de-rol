@@ -13,7 +13,7 @@ class Juegos
     public $genero;
     public $ambientacion;
 
-    public function __construct($id = null, $nombre, $descripcion, $id_usuario = null, Generos $genero, Ambientaciones $ambientacion)
+    public function __construct($id=null, $nombre, $descripcion, $id_usuario = null, Generos $genero, Ambientaciones $ambientacion)
     {
         $this->id = $id;
         $this->nombre = $nombre;

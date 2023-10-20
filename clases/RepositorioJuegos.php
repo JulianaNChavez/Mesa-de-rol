@@ -73,17 +73,12 @@ class RepositorioJuegos extends repositorio
         return $secundarios;
     }
 
-    public function crear(Juegos $juego)
+    public function crear($nombre, $descripcion, $id_genero, $id_ambientacion, $id_usuario)
     {
-        $q = "INSERT INTO usuarios (nombre, descripcion, id_genero, id_ambientacion) VALUES (?, ?, ?, ?)";
+        $q = "INSERT INTO juegos (nombre, descripcion, id_genero, id_ambientacion, id_usuario) VALUES (?, ?, ?, ?, ?)";
         $query = self::$conexion->prepare($q);
 
-        $nombre = $juego->nombre;
-        $descripcion = $juego->descripcion;
-        $genero = $juego->genero;
-        $ambientacion = $juego->ambientacion;
-
-        $query->bind_param("ssdd", $nombre, $descripcion, $genero, $ambientacion);
+        $query->bind_param("ssddd", $nombre, $descripcion, $id_genero, $id_ambientacion, $id_usuario);
 
         if ($query->execute()) {
             return self::$conexion->insert_id;

@@ -1,8 +1,10 @@
 <?php
-require_once 'RepositorioJuegos.php';
-require_once 'Juegos.php';
+
 require_once 'Generos.php';
 require_once 'Ambientaciones.php';
+require_once 'RepositorioJuegos.php';
+require_once 'Juegos.php';
+require_once 'Usuario.php';
 
 class ControladorJuegos
 {
@@ -38,9 +40,7 @@ class ControladorJuegos
     function crear($nombre, $descripcion, $id_genero, $id_ambientacion)
     {
         $repo = new RepositorioJuegos();
-        $genero = new Genero($id_genero);
-        $ambientacion = new Ambientacion($id_ambientacion);
-        $juego = new Juegos($nombre, $descripcion, $genero, $ambientacion);
+        return $repo->crear($nombre, $descripcion, $id_genero, $id_ambientacion, $this->id_usuario);
     }
 
     public function eliminar($juego)
