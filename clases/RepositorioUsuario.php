@@ -1,9 +1,8 @@
 <?php
-
+require_once 'Repositorio.php';
 require_once 'Usuario.php';
-require_once '.env.php';
 
-class RepositorioUsuario
+class RepositorioUsuario extends Repositorio
 {
     public function login($nombre_usuario, $clave)
     {

@@ -1,11 +1,11 @@
 <?php
+require_once 'Repositorio.php';
 require_once 'Juegos.php';
 require_once 'Usuario.php';
 require_once 'Generos.php';
 require_once 'Ambientaciones.php';
-require_once '.env.php';
 
-class RepositorioJuegos
+class RepositorioJuegos extends repositorio
 {
     public function get_all($filtro = null)
     {

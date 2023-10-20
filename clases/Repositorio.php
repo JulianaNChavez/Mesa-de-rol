@@ -1,8 +1,10 @@
 <?php
 
+require_once '.env.php';
+
 abstract class Repositorio
 {
-    private static $conexion = null;
+    protected static $conexion = null;
 
     public function __construct()
     {
