@@ -20,6 +20,8 @@ $generos = $cv->lista_secundarios("generos");
 
 $ambientacion = $cv->lista_secundarios("ambientaciones");
 
+$i = 0
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,23 +38,26 @@ $ambientacion = $cv->lista_secundarios("ambientaciones");
       <div class="text-center">
         <h3>Modificar datos de usuario</h3>
         <form action="modificar_juego.php" method="post">
-            <label for="nombre_juego">Nombre del juego</label>
-            <input name="nombre_juego" class="form-control form-control-lg"
-                ><br>
+            <label for="nombre_original">Nombre actual del juego</label>
+            <input name="nombre_original" class="form-control form-control-lg"><br>
+            <label for="nombre_juego">Nuevo nombre del juego</label>
+            <input name="nombre_juego" class="form-control form-control-lg"><br>
             <label for="descripcion">Descripcion</label>
-            <input name="descripcion" class="form-control form-control-lg"
-            ><br>
+            <input name="descripcion" class="form-control form-control-lg"><br>
             <label for="genero">Genero</label>
             <br>
             <?php foreach ($generos as $s) {
-                echo '<input type="radio" name="genero" value=' . $s . '>' . $s . "<br>";
+                $i+=1;
+                echo '<input type="radio" name="genero" value=' . $i . '>' . $s . "<br>";
             }
             ?>
                 <br>
                 <label for="ambientacion">Ambientacion</label>
             <br>
-            <?php foreach ($ambientacion as $s) {
-                echo '<input type="radio" name="ambientacion" value=' . $s . '>' . $s . "<br>";
+            <?php $i=0;
+            foreach ($ambientacion as $s) {
+                $i+=1;
+                echo '<input type="radio" name="ambientacion" value=' . $i . '>' . $s . "<br>";
             }
             ?>
                 <br>

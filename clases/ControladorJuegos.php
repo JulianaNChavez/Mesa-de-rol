@@ -45,14 +45,13 @@ class ControladorJuegos
         return $repo->eliminar($juego);
     }
 
-    function modificar(string $nombre, string $descripcion, $genero, $ambientacion, $juego)
+    function modificar(string $nombre, string $descripcion, $genero, $ambientacion, $nombre_original)
     {
         $repo = new RepositorioJuegos();
 
-        if ($repo->actualizar($nombre, $descripcion, $genero, $ambientacion, $juego)) {
+        if ($repo->actualizar($nombre, $descripcion, $genero, $ambientacion, $nombre_original)) {
             // Si los datos se actualizaron correctamente en la BD, actualizo
             // el usuario que tengo en memoria...
-            $usuario->setDatos($nombre, $descripcion, $genero, $ambientacion);
 
             return true;
         } else {

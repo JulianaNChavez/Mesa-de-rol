@@ -19,9 +19,9 @@ if ( empty($_POST['nombre_juego']) || empty($_POST['descripcion']) || empty($_PO
     die();
 }
 
-$cv = new ControladorJuegos($usuario->get_Id());
+$cv = new ControladorJuegos($usuario->getId());
 
-$resultado = $cv->modificar($_POST['nombre'], $_POST['descripcion'], $_POST['genero'], $_POST['ambientacion'], $juego);
+$resultado = $cv->modificar($_POST['nombre_juego'], $_POST['descripcion'], $_POST['genero'], $_POST['ambientacion'], $_POST['nombre_original']);
 
 if ($resultado) {
     $redirigir = "home.php?mensaje=Datos modificados exitosamente";

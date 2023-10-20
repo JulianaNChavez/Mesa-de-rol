@@ -58,9 +58,15 @@ class RepositorioJuegos extends repositorio
             $query->bind_result($id, $nombre);
         };
         $secundarios = [];
+        $i = [];
+        $h = 0;
         while ($query->fetch()) {
             $s = new Generos($id, $nombre);
-        
+
+            $h += 1;
+
+            $i[] = $h;
+
             $secundarios[] = $s;
         }
 
@@ -79,15 +85,13 @@ class RepositorioJuegos extends repositorio
         return $query->execute();
     }
 
-    public function actualizar(string $nombre, string $descripcion, $genero, $ambientacion, $juego)
+    public function actualizar(string $nombre, string $descripcion, $id_genero, $id_ambientacion, $nombre_original)
     {
-        $q = "UPDATE juegos SET nombre = ?, descripcion = ?, genero = ?, ambientacion = ? WHERE nombre = ?";
+        $q = "UPDATE juegos SET nombre = ?, descripcion = ?, id_genero = ?, id_ambientacion = ? WHERE nombre = ?";
 
         $query = self::$conexion->prepare($q);
 
-        $id = $usuario->getId();
-
-        $query->bind_param("ssss", $nombre_usuario, $nombre, $apellido, $id);
+        $query->bind_param("ssdds", $nombre, $descripcion, $id_genero, $id_ambientacion, $nombre_original);
         
         return $query->execute();
     }
