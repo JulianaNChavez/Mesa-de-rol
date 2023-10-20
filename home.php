@@ -33,7 +33,7 @@ if (isset($_SESSION['usuario'])) {
                     <p>'.$_GET['mensaje'].'</p></div>';
             }
         ?>
-        <p><h5><a href="lista_juegos.php">Quiero sentarme en la mesa y ver que puedo jugar</a></h5></p>
+        <p><h6><a href="lista_juegos.php">Quiero sentarme en la mesa y ver que puedo jugar</a></h6></p>
         <p><a href="datos_modificar.php">Modificar datos de mi usuario</a></p>
         <p><a href="confirmar_delete.php">Eliminar mi usuario</a></p>
         <p><a href="logout.php">Cerrar sesión</a></p>

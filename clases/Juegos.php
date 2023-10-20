@@ -30,7 +30,7 @@ class Juegos
 
     public function __toString()
     {
-        $texto = "Juego $this->id - $this->nombre - Descripcion: $this->descripcion <br> ";
+        $texto = "Juego: $this->nombre - Descripcion: $this->descripcion <br> ";
         $texto.= "Su genero es: $this->genero - Cuya ambientacion principal se basa en: $this->ambientacion";
         return $texto;
     }

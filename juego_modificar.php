@@ -36,7 +36,7 @@ $i = 0
       <h1>Mesa de Rol</h1>
       </div>
       <div class="text-center">
-        <h3>Modificar datos del juego</h3>
+        <h3>Modificar datos del juego</h3><br>
         <form action="modificar_juego.php" method="post">
             <label for="nombre_original">Nombre actual del juego</label>
             <input name="nombre_original" class="form-control form-control-lg"><br>
@@ -48,7 +48,7 @@ $i = 0
             <br>
             <?php foreach ($generos as $s) {
                 $i+=1;
-                echo '<input type="radio" name="genero" value=' . $i . '>' . $s . "<br>";
+                echo '<input class="form-check-input" type="radio" name="genero" value=' . $i . '>' . $s . "<br>";
             }
             ?>
                 <br>
@@ -57,7 +57,7 @@ $i = 0
             <?php $i=0;
             foreach ($ambientacion as $s) {
                 $i+=1;
-                echo '<input type="radio" name="ambientacion" value=' . $i . '>' . $s . "<br>";
+                echo '<input class="form-check-input" type="radio" name="ambientacion" value=' . $i . '>' . $s . "<br>";
             }
             ?>
                 <br>

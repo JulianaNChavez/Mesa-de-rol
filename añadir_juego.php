@@ -35,7 +35,7 @@ $i = 0
       <h1>Mesa de Rol</h1>
       </div>
       <div class="text-center">
-        <h3>Crear un juego</h3>
+        <h3>Crear un juego</h3><br>
         <form action="crear_juego.php" method="post">
             <label for="nombre_juego">Nombre del juego</label>
             <input name="nombre_juego" class="form-control form-control-lg"><br>
